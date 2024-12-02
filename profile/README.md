@@ -22,7 +22,7 @@
 
 전체적인 아키텍처는 다음과 같다.  
 
-![Untitled](/images/architecture.PNG)  
+![Untitled](/profile/images/architecture.PNG)  
 
 사용자가 이용하는 인터페이스는 Flutter로 개발된 앱이며, 각 디바이스에서 송신하는 시그널을 라즈베리파이 피코 W Flutter 간 블루투스 통신을 통해 전달받는다.   
 
@@ -41,15 +41,15 @@ Flutter 앱에는 사전에 학습된 3가지의 추론 모델이 내장되어 �
 
 ### 가슴 디바이스
 
-![Untitled](/images/device1.png) ![Untitled](/images/device1-1.PNG)   
+![Untitled](/profile/images/device1.png) ![Untitled](/profile/images/device1-1.PNG)   
 실제 완성된 가슴 디바이스의 내부 모습과 착용한 모습이다.  
 
 ### 손목 디바이스
-![Untitled](/images/device2.png)   
+![Untitled](/profile/images/device2.png)   
 실제 완성된 손목 디바이스의 내부 모습과 착용한 모습이다.  
 
 ### 최종 사이즈 및 결과표    
-![Untitled](/images/device_result.PNG)    
+![Untitled](/profile/images/device_result.PNG)    
 
 
 
@@ -61,7 +61,7 @@ Flutter 앱에는 사전에 학습된 3가지의 추론 모델이 내장되어 �
 
 ### Mobilenet v3-small 아키텍처  
 
-![Untitled](/images/mobilenet_v3_small_architecture.png)  
+![Untitled](/profile/images/mobilenet_v3_small_architecture.png)  
 
 아키텍처에서 알 수 있듯이 Mobilenet V3 모델은 CNN 기반의 모델로 시계열 데이터로 학습시키기 위해서 1차원으로 구조를 변형 후 진행하였다.  
 
@@ -79,7 +79,7 @@ Flutter 앱에는 사전에 학습된 3가지의 추론 모델이 내장되어 �
 
 이것을 수식으로 나타내면 다음과 같다.  
 
-![Untitled](/images/pre1.png)
+![Untitled](/profile/images/pre1.png)
 
 ### 2. Tilt Angles
 
@@ -91,13 +91,13 @@ Flutter 앱에는 사전에 학습된 3가지의 추론 모델이 내장되어 �
 
 이때 기울기 각도는 라디안 단위가 아닌 도 단위를 사용한다.  
 
-![Untitled](/images/pre2.png)
+![Untitled](/profile/images/pre2.png)
 
 ### 3. LIDS (Locomotor Inactivity During Sleep)
 
 **ENMO_sub** :
 
-![Untitled](/images/pre3.png)
+![Untitled](/profile/images/pre3.png)
 
 먼저 ENMO값에 0.02를 빼주어 값을 보정을 해준다.  
 
@@ -110,7 +110,7 @@ Flutter 앱에는 사전에 학습된 3가지의 추론 모델이 내장되어 �
 
 **ENMO_sub_smooth**:
 
-![Untitled](/images/pre4.png)
+![Untitled](/profile/images/pre4.png)
 
 ENMO_sub_smooth는 10분(600초) 간격으로 움직임의 총량을 계산한다.  
 
@@ -121,7 +121,7 @@ ENMO_sub_smooth는 10분(600초) 간격으로 움직임의 총량을 계산한�
 
 **LIDS_unfiltered 계산**:
 
-![Untitled](/images/pre5.png)
+![Untitled](/profile/images/pre5.png)
 
 LIDS_unfiltered는 ENMO_sub_smooth 값의 역수를 취하여 활동량이 적을수록 값이 커지도록 한다.  
 
@@ -130,7 +130,7 @@ LIDS_unfiltered는 ENMO_sub_smooth 값의 역수를 취하여 활동량이 적�
 
 **LIDS 계산**:
 
-![Untitled](/images/pre6.png)
+![Untitled](/profile/images/pre6.png)
 
 LIDS_unfiltered 값을 30분(1800초) 동안 이동 평균을 계산한다.   
 
@@ -147,7 +147,7 @@ LIDS 수면 중 신체의 움직임이 적은 상태를 평가하여, 수면 상
   
 rem수면을 깊은 수면 단계로 예측하였을 때는 76%의 정확도를 보여주었다.  
 
-![Untitled](/images/mobilenet_v3_result.PNG)  
+![Untitled](/profile/images/mobilenet_v3_result.PNG)  
 
 ## 수면 단계 판별 알고리즘 도입 및 검증 결과
 
@@ -159,7 +159,7 @@ rem수면을 깊은 수면 단계로 예측하였을 때는 76%의 정확도를 
 
 ### 검증 결과 1
 
-![Untitled](/images/sleep_class_1-1.png) ![Untitled](/images/sleep_class_1-2.png)  
+![Untitled](/profile/images/sleep_class_1-1.png) ![Untitled](/profile/images/sleep_class_1-2.png)  
 
 ### 검증 결과 2
 
@@ -167,7 +167,7 @@ rem수면을 깊은 수면 단계로 예측하였을 때는 76%의 정확도를 
 
 ### 검증 결과 3
 
-![Untitled](/images/sleep_class_3-1.png) ![Untitled](/images/sleep_class_3-2.png)  
+![Untitled](/profile/images/sleep_class_3-1.png) ![Untitled](/profile/images/sleep_class_3-2.png)  
 
 클래스를 3개로 한정지어 측정한 결과라 완전히 동일하다고 할 수는 없으나, 수면 자세가 바뀔 때 수면 단계 또한 내려가는 것을 확인할 수 있었고 알고리즘을 도입하는 것에 근거를 더할 수 있었다.  
 
@@ -175,15 +175,15 @@ rem수면을 깊은 수면 단계로 예측하였을 때는 76%의 정확도를 
 
 ### 수면자세 측정(디바이스 착용 X)
 
-![Untitled](/images/sleep1.png) 
+![Untitled](/profile/images/sleep1.png) 
 
 ### 수면자세 측정(디바이스 착용 O)
 
-![Untitled](/images/sleep2.png) 
+![Untitled](/profile/images/sleep2.png) 
 
 ### 최종 결과
 
-![Untitled](/images/final_result.png) 
+![Untitled](/profile/images/final_result.png) 
 
 ## 후기  
 
